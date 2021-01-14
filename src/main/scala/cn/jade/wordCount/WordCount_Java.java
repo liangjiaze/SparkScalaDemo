@@ -17,7 +17,7 @@ public class WordCount_Java {
     public static void main(String[] args) {
         SparkConf sparkConf = new SparkConf().setAppName("WordCount_java").setMaster("local[2]");
         JavaSparkContext jsc = new JavaSparkContext(sparkConf);
-        JavaRDD <String> dataJavaRDD = jsc.textFile("E:\\\\words.txt");
+        JavaRDD <String> dataJavaRDD = jsc.textFile("E:\\bigdata\\data\\words.txt");
 
         JavaRDD <String> wordsJavaRDD = dataJavaRDD.flatMap(new FlatMapFunction <String, String>() {
             public Iterator <String> call(String line) throws Exception {
