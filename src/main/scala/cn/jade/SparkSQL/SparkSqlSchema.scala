@@ -13,7 +13,7 @@ object SparkSqlSchema {
       .master("local[2]")
       .getOrCreate()
     val sc:SparkContext = sparkSession.sparkContext
-    val dataRDD:RDD[String] = sc.textFile("D:\\bigdata\\data\\person.txt")
+    val dataRDD:RDD[String] = sc.textFile("E:\\bigdata\\data\\person.txt")
     val dataArrayRDD:RDD[Array[String]] = dataRDD.map(_.split(" "))
 
 

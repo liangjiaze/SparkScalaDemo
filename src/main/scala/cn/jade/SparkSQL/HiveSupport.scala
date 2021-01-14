@@ -7,7 +7,7 @@ object HiveSupport {
     val sparkSession = SparkSession.builder()
       .appName("HiveSupport")
       .master("local[2]")
-      .config("spark.sql.warehouse.dir", "d:\\bigdata\\data\\spark-warehouse")
+      .config("spark.sql.warehouse.dir", "E:\\bigdata\\data\\spark-warehouse")
       .enableHiveSupport()
       .getOrCreate()
     sparkSession.sparkContext.setLogLevel("WARN")

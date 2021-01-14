@@ -1,6 +1,5 @@
 package cn.jade.wordCount
 
-import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 object WordCount {
@@ -9,7 +8,7 @@ object WordCount {
     val sc = new SparkContext(sparkconf)
     sc.setLogLevel("WARN")
 
-    sc.textFile("D:\\bigdata\\data\\words.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).sortBy(_._2,false).collect().foreach(println)
+    sc.textFile("E:\\bigdata\\data\\words.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).sortBy(_._2,false).collect().foreach(println)
 
 //    val data:RDD[String] = sc.textFile("D:\\bigdata\\data\\words.txt")
 //    val words:RDD[String] = data.flatMap(_.split(" "))
