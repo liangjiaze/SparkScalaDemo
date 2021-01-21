@@ -52,11 +52,11 @@ object IpLocation {
   def main(args: Array[String]): Unit = {
     val sparkConf:SparkConf = new SparkConf().setAppName("IpLocation").setMaster("local[5]")
     val sc = new SparkContext(sparkConf)
-    val city_ip_rdd:RDD[(String, String, String, String)] = sc.textFile("D:\\bigdata\\data\\ip.txt").map(_.split("\\|")).map(x => (x(2), x(3), x(13), x(14)))
+    val city_ip_rdd:RDD[(String, String, String, String)] = sc.textFile("E:\\bigdata\\data\\ip.txt").map(_.split("\\|")).map(x => (x(2), x(3), x(13), x(14)))
     //val unit1 = city_ip_rdd.foreach(x=>println(x._1,x._2,x._3,x._4))
     //println(unit1)
     val cityIpBroadcast:Broadcast[Array[(String,String,String,String)]] = sc.broadcast(city_ip_rdd.collect)
-    val destData:RDD[String] = sc.textFile("D:\\bigdata\\data\\20090121000132.394251.http.format").map(_.split("\\|")(1))
+    val destData:RDD[String] = sc.textFile("E:\\bigdata\\data\\20090121000132.394251.http.format").map(_.split("\\|")(1))
   //  destData.foreach(x=>println(x))
 
     val result: RDD[((String, String), Int)] = destData.mapPartitions(iter => {
