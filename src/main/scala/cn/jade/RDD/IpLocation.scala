@@ -20,8 +20,8 @@ object IpLocation {
   def binarySearch(ipNum: Long, broadcastValue: Array[(String, String, String, String)]):Int = {
     var start = 0
     var end = broadcastValue.length-1
-    while(start<=end){      // todo 这个地方是<=
-      var middle = (start+end)/2    //todo 之前少括号了  ，逻辑判断不对
+    while(start<=end){      // 这个地方是<=
+      var middle = (start+end)/2    // 之前少括号了  ，逻辑判断不对
       if(ipNum>=broadcastValue(middle)._1.toLong && ipNum<=broadcastValue(middle)._2.toLong){
         return middle
       }
@@ -35,7 +35,7 @@ object IpLocation {
     -1
   }
 
-  def data2mysql(iter:Iterator[((String,String),Int)])={
+  def data2mysql(iter:Iterator[((String,String),Int)]): Unit ={
     var conn:Connection=null
     var ps:PreparedStatement=null
     val sql="insert into iplocation(longitude,latitude,total_count)values(?,?,?)"
@@ -68,7 +68,7 @@ object IpLocation {
 
       })
     })
-    val unit2 = result.foreach(x=>println(x._1._1,x._1._2,x._2))
+    val unit2: Unit = result.foreach(x=>println(x._1._1,x._1._2,x._2))
   //  println(unit2)
     val finalResult:RDD[((String,String),Int)] = result.reduceByKey(_+_)
     finalResult.collect().foreach(x=>println(x))

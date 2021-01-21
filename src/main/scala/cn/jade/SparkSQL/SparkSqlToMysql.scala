@@ -1,12 +1,11 @@
 package cn.jade.SparkSQL
 
 import java.util.Properties
-
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
-//todo:利用sparksql将数据写入到mysql表中
+// 利用sparksql将数据写入到mysql表中
 
 case class Student(id:Int,name:String,age:Int)
 object DataToMysql {

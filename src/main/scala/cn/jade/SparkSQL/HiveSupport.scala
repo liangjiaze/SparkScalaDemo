@@ -11,7 +11,7 @@ object HiveSupport {
       .enableHiveSupport()
       .getOrCreate()
     sparkSession.sparkContext.setLogLevel("WARN")
-    //todo:2、操作sql语句
+    // 2、操作sql语句
 
 //    sparkSession.sql("CREATE TABLE IF NOT EXISTS person (id int, name string, age int) row format delimited fields terminated by ','")
 //    sparkSession.sql("LOAD DATA LOCAL INPATH './data/student.txt' INTO TABLE person")

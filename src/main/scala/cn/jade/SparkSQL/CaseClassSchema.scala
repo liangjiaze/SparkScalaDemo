@@ -22,7 +22,7 @@ object CaseClassSchema {
     val personDF:DataFrame = personRDD.toDF()
 
 
-    //todo-------------------DSL语法操作 start--------------
+    //-------------------DSL语法操作 start--------------
     personDF.show()
     personDF.printSchema()
     personDF.columns.foreach(println)
@@ -34,7 +34,7 @@ object CaseClassSchema {
     println(personDF.filter($"age">30).count())
     personDF.groupBy("age").count().show()
 
-    //todo--------------------SQL操作风格 start-----------
+    //--------------------SQL操作风格 start-----------
     personDF.createOrReplaceTempView("t_person")
     sparkSession.sql("select * from t_person").show()
     sparkSession.sql("select * from t_person order by age desc").show()
